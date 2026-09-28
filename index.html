@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fitness Plan Generator</title>
+</head>
+
+<body>
+
+    <h1>Fitness Plan Generator</h1>
+
+    <label>Name:</label>
+    <input type="text" id="name">
+    <br><br>
+
+    <label>Age:</label>
+    <input type="number" id="age">
+    <br><br>
+
+    <label>Fitness Goal:</label>
+    <input type="text" id="goal">
+    <br><br>
+
+    <button onclick="generatePlan()">Generate Plan</button>
+
+    <div id="result"></div>
+
+    <script>
+        function generatePlan() {
+
+            let name = document.getElementById("name").value;
+            let age = document.getElementById("age").value;
+            let goal = document.getElementById("goal").value;
+
+            if (name === "" || age === "" || goal === "") {
+                alert("Please fill all the details!");
+                return;
+            }
+let plan = "";
+if (goal.toLowerCase().includes("weight loss")) {
+    plan = `
+        <h3>Weight Loss Fitness Plan</h3>
+        <p>🏃 Exercise: 30 minutes walking or jogging</p>
+        <p>💪 Workout: Squats, lunges and light exercises</p>
+        <p>🥗 Food: Eat vegetables, fruits and protein-rich foods</p>
+        <p>💧 Water: Drink enough water throughout the day</p>
+        <p>😴 Sleep: Get 7-9 hours of sleep</p>
+    `;
+}
+            document.getElementById("result").innerHTML = `
+                <h2>Hello ${name}!</h2>
+                <p>Age: ${age}</p>
+                <p>Goal: ${goal}</p>  
+                ${plan}
+            `;
+        }
+    </script>
+
+</body>
+</html>
